@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Rightmove Realtime Datafeed Json Schema for the get property performance request",
+  "type": "object",
+  "properties": {
+    "network": {
+      "type": "object",
+      "description": "Information about the network calling the API",
+      "properties": {
+        "network_id": {
+          "type": "integer",
+          "description": "Unique Rightmove reference for this network",
+          "$id": "network_id"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["network_id"],
+      "$id": "network"
+    },
+    "branch": {
+      "type": "object",
+      "description": "Details about which branch's performance metrics are being retrieved",
+      "properties": {
+        "branch_id": {
+          "type": "integer",
+          "description": "Unique Rightmove reference for this branch",
+          "$id": "branch_id"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["branch_id"],
+      "$id": "branch"
+    },
+    "property": {
+      "type": "object",
+      "description": "Information about the property for which performance metrics are being exported",
+      "properties": {
+        "agent_ref": {
+          "type": "string",
+          "description": "Agent's unique reference for this property",
+          "minLength": 1,
+          "maxLength": 80,
+          "$id": "agent_ref"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["agent_ref"],
+      "$id": "property"
+    },
+    "export_period": {
+      "type": "object",
+      "description": "Defines the period for which property performance metrics are being requested for",
+      "properties": {
+        "start_date": {
+          "type": "string",
+          "description": "The date for the start of the export period - this cannot be more than 28 days ago in the format: dd-MM-yyyy",
+          "$id": "start_date"
+        },
+        "end_date": {
+          "type": "string",
+          "description": "The date for the end of the export period - this cannot be more than 28 days ago in the format: dd-MM-yyyy",
+          "$id": "end_date"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["start_date", "end_date"],
+      "$id": "export_period"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["network", "branch", "property", "export_period"]
+}

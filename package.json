@@ -1,0 +1,59 @@
+{
+  "name": "rightmove-rtdf",
+  "version": "0.0.0",
+  "description": "Client for the Rightmove Real Time Data Feed (RTDF) API",
+  "keywords": [
+    "rightmove",
+    "rightmove-rtdf"
+  ],
+  "homepage": "https://github.com/jxdp/rightmove",
+  "bugs": {
+    "url": "https://github.com/jxdp/rightmove/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jxdp/rightmove.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "jxdp",
+    "url": "https://github.com/jxdp"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "lint": "eslint . --ext ts,js,json --fix",
+    "prepublishOnly": "npm run lint && npm run build && npm run test:ci",
+    "test": "node --env-file .env.test.local --import tsx --test **/*.test.ts",
+    "test:ci": "node --import tsx --test **/*.test.ts"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@anatine/zod-mock": "^3.13.3",
+    "@typescript-eslint/eslint-plugin": "^7.0.1",
+    "@typescript-eslint/parser": "^7.0.1",
+    "ajv": "^8.12.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.2.5",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "@types/luxon": ">=3",
+    "@types/node": ">=18",
+    "luxon": ">=3",
+    "zod": ">=3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

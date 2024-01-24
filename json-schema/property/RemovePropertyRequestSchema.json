@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Rightmove Realtime Datafeed Json Schema for remove property request",
+  "type": "object",
+  "properties": {
+    "network": {
+      "type": "object",
+      "description": "Information about the network calling the API",
+      "properties": {
+        "network_id": {
+          "type": "integer",
+          "description": "Unique Rightmove reference for this network",
+          "$id": "network_id"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["network_id"],
+      "$id": "network"
+    },
+    "branch": {
+      "type": "object",
+      "description": "Information about the branch loading this property",
+      "properties": {
+        "branch_id": {
+          "type": "integer",
+          "description": "Unique Rightmove reference for this branch",
+          "$id": "branch_id"
+        },
+        "channel": {
+          "type": "integer",
+          "enum": [1, 2],
+          "description": "Defines whether this is the sales or lettings channel for a branch: 1 Sales 2 Lettings",
+          "$id": "channel"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["branch_id", "channel"],
+      "$id": "branch"
+    },
+    "property": {
+      "type": "object",
+      "description": "Information about the property being sent",
+      "properties": {
+        "agent_ref": {
+          "type": "string",
+          "description": "Agent's unique reference for this property",
+          "minLength": 1,
+          "maxLength": 80,
+          "$id": "agent_ref"
+        },
+        "removal_reason": {
+          "type": ["integer", "null"],
+          "enum": [7, 8, 9, 10, 11, 12, null],
+          "description": "The agent's reason for removing this property from the site: 7 Sold by Us - 8 Sold by Another Agent - 9 Withdrawn from Market - 10 Lost Instruction - 11 Removed - 12 Let by Us",
+          "$id": "removal_reason"
+        },
+        "transaction_date": {
+          "type": ["string", "null"],
+          "description": "The date the transaction was completed (if applicable) - in the format: dd-MM-yyyy HH:mm:ss",
+          "$id": "transaction_date"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["agent_ref"],
+      "$id": "property"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["network", "branch", "property"]
+}

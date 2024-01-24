@@ -1,0 +1,214 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Rightmove Realtime Datafeed Json Schema for GetPropertyPerformance response",
+  "type": "object",
+  "properties": {
+    "request_id": {
+      "type": "string",
+      "description": "The unique ID of the request which this response is associated with"
+    },
+    "message": {
+      "type": "string",
+      "description": "The message content for the response"
+    },
+    "success": {
+      "type": "boolean",
+      "description": "Indicates whether or not the request was successful"
+    },
+    "request_timestamp": {
+      "type": "string",
+      "description": "The time at which the request was received in the format: dd-MM-yyyy HH:mm:ss"
+    },
+    "response_timestamp": {
+      "type": "string",
+      "description": "The time at which the response was sent in the format: dd-MM-yyyy HH:mm:ss"
+    },
+    "replication_lag": {
+      "type": ["integer", "null"],
+      "description": "The current lag time for replicating between the three Rightmove data centres in minutes"
+    },
+    "export_period": {
+      "type": ["object", "null"],
+      "description": "The period for which property performance metrics are being exported",
+      "properties": {
+        "start_date": {
+          "type": "string",
+          "description": "The start date for the export period in the format: dd-MM-yyyy - this cannot be more than 28 days ago",
+          "$id": "start_date"
+        },
+        "end_date": {
+          "type": "string",
+          "description": "The end date for the export period in the format: dd-MM-yyyy - this cannot be more than 28 days ago",
+          "$id": "end_date"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["start_date", "end_date"]
+    },
+    "branch": {
+      "type": ["object", "null"],
+      "description": "Information about the branch for which the metrics are being generated",
+      "properties": {
+        "branch_id": {
+          "type": "integer",
+          "description": "Unique Rightmove ID for the branch for which the performance metrics are being generated",
+          "$id": "branch_id"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["branch_id"]
+    },
+    "property": {
+      "type": ["object", "null"],
+      "description": "Details of the property which the performance metrics are being generated",
+      "properties": {
+        "agent_ref": {
+          "type": "string",
+          "description": "Agent's unique reference for the property",
+          "$id": "agent_ref"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["agent_ref"]
+    },
+    "property_views_daily": {
+      "type": ["array", "null"],
+      "minItems": 0,
+      "maxItems": 28,
+      "description": "The total number of times a property has been viewed on Rightmove on the dates specified",
+      "items": {
+        "type": ["object", "null"],
+        "required": ["date", "featured_property", "premium_listing"],
+        "description": "The total number of times a property has been viewed on Rightmove on a specific date",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "The date property performance metrics have been requested for",
+            "$id": "date"
+          },
+          "featured_property": {
+            "type": "boolean",
+            "description": "Y/N - was the property a featured property on this date?"
+          },
+          "premium_listing": {
+            "type": "boolean",
+            "description": "Y/N - was the property a premium listing on this date?"
+          },
+          "summary_views": {
+            "type": ["object", "null"],
+            "description": "Information on a property's summary views on Rightmove on the date specified",
+            "properties": {
+              "total_summary_views": {
+                "type": "integer",
+                "description": "The total number of times the property has appeared in a summary view on the requested date"
+              },
+              "desktop_summary_views": {
+                "type": "integer",
+                "description": "The total number of times the property has appeared in a summary view on the requested date, when viewed from a desktop PC"
+              },
+              "mobile_summary_views": {
+                "type": "integer",
+                "description": "The total number of times the property has appeared in a summary view on the requested date, when viewed from a mobile device"
+              }
+            },
+            "required": [
+              "total_summary_views",
+              "desktop_summary_views",
+              "mobile_summary_views"
+            ],
+            "$id": "summary_views"
+          },
+          "detail_views": {
+            "type": ["object", "null"],
+            "description": "Information on a property's detail views on Rightmove on the date specified",
+            "properties": {
+              "total_detail_views": {
+                "type": "integer",
+                "description": "The total number of detail views of the property on the requested date"
+              },
+              "desktop_detail_views": {
+                "type": "integer",
+                "description": "The total number of detail views of the property on the requested date, when viewed from a desktop PC"
+              },
+              "mobile_detail_views": {
+                "type": "integer",
+                "description": "The total number of detail views of the property on the requested date, when viewed from a mobile device"
+              }
+            },
+            "required": [
+              "total_detail_views",
+              "desktop_detail_views",
+              "mobile_detail_views"
+            ],
+            "$id": "detail_views"
+          }
+        },
+        "additionalProperties": false,
+        "$id": "property_view_daily"
+      },
+      "$id": "property_views_daily"
+    },
+    "errors": {
+      "type": ["array", "null"],
+      "description": "The errors causing the request to fail",
+      "minItems": 0,
+      "items": {
+        "type": ["object", "null"],
+        "required": ["error_code", "error_description"],
+        "properties": {
+          "error_code": {
+            "type": "string",
+            "description": "The unique Rightmove code for the error causing the request to fail",
+            "$id": "error_code"
+          },
+          "error_description": {
+            "type": "string",
+            "description": "The full description of the error associated with the error code which has been generated",
+            "$id": "error_description"
+          },
+          "error_value": {
+            "type": ["string", "null"],
+            "description": "The value that caused this error",
+            "$id": "error_value"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "warnings": {
+      "type": ["array", "null"],
+      "description": "The warning generated by the request",
+      "minItems": 0,
+      "items": {
+        "type": ["object", "null"],
+        "required": ["warning_code", "warning_description"],
+        "properties": {
+          "warning_code": {
+            "type": "string",
+            "description": "The unique Rightmove warning code generated due to failure to pass all of the business rules",
+            "$id": "warning_code"
+          },
+          "warning_description": {
+            "type": "string",
+            "description": "The full description of the warning associated with the warning code which has been generated",
+            "$id": "warning_description"
+          },
+          "warning_value": {
+            "type": ["string", "null"],
+            "description": "The value that caused this warning",
+            "$id": "warning_value"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "request_id",
+    "message",
+    "success",
+    "request_timestamp",
+    "response_timestamp"
+  ]
+}
