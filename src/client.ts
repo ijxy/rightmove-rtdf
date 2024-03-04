@@ -12,8 +12,8 @@ export type ClientOptions = {
 };
 
 export class Client {
-  private readonly endpoint: string;
-  private readonly defaultRequestOptions?: DefaultRequestOptions;
+  readonly endpoint: string;
+  readonly defaultRequestOptions?: DefaultRequestOptions;
 
   constructor(options?: ClientOptions) {
     this.endpoint = options?.test ? TEST_ENDPOINT : LIVE_ENDPOINT;
