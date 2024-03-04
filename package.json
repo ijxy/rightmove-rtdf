@@ -1,6 +1,6 @@
 {
   "name": "rightmove-rtdf",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Client for the Rightmove Real Time Data Feed (RTDF) API",
   "keywords": [
     "rightmove",
