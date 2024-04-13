@@ -32,7 +32,8 @@
     "test:ci": "node --import tsx --test **/*.test.ts"
   },
   "dependencies": {
-    "node-fetch": "^2.7.0"
+    "@types/node-fetch": "^2.6.11",
+    "node-fetch": "^2.6.13"
   },
   "devDependencies": {
     "@anatine/zod-mock": "^3.13.3",
