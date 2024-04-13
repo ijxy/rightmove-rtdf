@@ -2,6 +2,12 @@
 [adf-docs]: https://www.rightmove.co.uk/adf.html
 [rtdf-spec]: https://media.rightmove.co.uk/ps/pdf/guides/adf/Rightmove_Real_Time_Datafeed_Specification.pdf
 
+[npm]: https://www.npmjs.com/package/rightmove-rtdf
+
+[![npm verison](https://img.shields.io/npm/v/rightmove-rtdf)][npm]
+[![npm bundle size](https://img.shields.io/bundlephobia/min/rightmove-rtdf)][npm]
+[![npm downloads](https://img.shields.io/npm/dm/rightmove-rtdf)][npm]
+
 # Rightmove RTDF Client
 
 Client for the [Rightmove][rightmove] Real Time Data Feed (RTDF) API.
@@ -25,7 +31,7 @@ The certificate provided by Rightmove can be used to authenticate requests made 
 
 ### Installation
 
-Install with `npm i rightmove`.
+Install with `npm i rightmove-rtdf`.
 
 ### Example: create an authenticated Agent to use with requests
 
