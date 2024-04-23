@@ -1,17 +1,19 @@
-import https from "node:https";
+import fetch, { Headers, RequestInit } from "node-fetch";
 
-import fetch from "node-fetch";
-
-export type RequestOptions = Pick<https.RequestOptions, "agent" | "signal">;
+export type RequestOptions = Pick<RequestInit, "agent" | "signal" | "headers">;
 
 export async function request<TData>(
   url: URL,
   data: TData,
   options?: RequestOptions,
 ) {
+  const headers = new Headers(options?.headers);
+  headers.set("content-type", "application/json");
+  headers.set("accept", "application/json");
+
   const res = await fetch(url, {
     method: "POST",
-    headers: { "content-type": "application/json" },
+    headers,
     body: JSON.stringify(data),
     agent: options?.agent,
     signal: options?.signal,
