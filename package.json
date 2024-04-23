@@ -27,9 +27,8 @@
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
     "lint": "eslint . --ext ts,js,json --fix",
-    "prepublishOnly": "npm run lint && npm run build && npm run test:ci",
-    "test": "node --env-file .env.test.local --import tsx --test **/*.test.ts",
-    "test:ci": "node --import tsx --test **/*.test.ts"
+    "test": "node --import tsx --test **/*.test.ts",
+    "prepublishOnly": "npm run lint && npm run build && npm run test"
   },
   "dependencies": {
     "@types/node-fetch": "^2.6.11",
@@ -49,8 +48,8 @@
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
-    "@types/luxon": ">=3",
     "@types/node": ">=18",
+    "@types/luxon": ">=3",
     "luxon": ">=3",
     "zod": ">=3"
   },

@@ -2,12 +2,12 @@ import https from "node:https";
 
 import fetch from "node-fetch";
 
-export type PostOptions = Pick<https.RequestOptions, "agent" | "signal">;
+export type RequestOptions = Pick<https.RequestOptions, "agent" | "signal">;
 
-export async function post<TData>(
+export async function request<TData>(
   url: URL,
   data: TData,
-  options?: PostOptions,
+  options?: RequestOptions,
 ) {
   const res = await fetch(url, {
     method: "POST",

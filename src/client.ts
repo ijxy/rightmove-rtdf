@@ -1,10 +1,10 @@
-import { PostOptions, post } from "./request";
+import { RequestOptions, request } from "./request";
 import * as schema from "./schema";
 
-export const LIVE_ENDPOINT = "https://adfapi.rightmove.co.uk/";
-export const TEST_ENDPOINT = "https://adfapi.adftest.rightmove.com/";
+const LIVE_ENDPOINT = "https://adfapi.rightmove.co.uk/";
+const TEST_ENDPOINT = "https://adfapi.adftest.rightmove.com/";
 
-export type DefaultRequestOptions = Partial<Pick<PostOptions, "agent">>;
+export type DefaultRequestOptions = Partial<Pick<RequestOptions, "agent">>;
 
 export type ClientOptions = {
   test?: boolean;
@@ -20,11 +20,11 @@ export class Client {
     this.defaultRequestOptions = options?.requestOptions;
   }
 
-  private fromPath(path: `/v1/property/${string}`): URL {
+  private toURL(path: `/v1/property/${string}`): URL {
     return new URL(path, this.endpoint);
   }
 
-  private withDefaultRequestOptions(options?: PostOptions): PostOptions {
+  private withDefaultRequestOptions(options?: RequestOptions): RequestOptions {
     return {
       agent: options?.agent ?? this.defaultRequestOptions?.agent,
       signal: options?.signal,
@@ -36,10 +36,10 @@ export class Client {
    */
   async getBranchEmails(
     input: schema.GetBranchEmailsRequest,
-    options?: PostOptions,
+    options?: RequestOptions,
   ): Promise<schema.GetBranchEmailsResponse> {
-    const output = await post(
-      this.fromPath("/v1/property/getbranchemails"),
+    const output = await request(
+      this.toURL("/v1/property/getbranchemails"),
       schema.getBranchEmailsRequestSchema.parse(input),
       this.withDefaultRequestOptions(options),
     );
@@ -51,10 +51,10 @@ export class Client {
    */
   async getBrandEmails(
     input: schema.GetBrandEmailsRequest,
-    options?: PostOptions,
+    options?: RequestOptions,
   ): Promise<schema.GetBrandEmailsResponse> {
-    const output = await post(
-      this.fromPath("/v1/property/getbrandemails"),
+    const output = await request(
+      this.toURL("/v1/property/getbrandemails"),
       schema.getBrandEmailsRequestSchema.parse(input),
       this.withDefaultRequestOptions(options),
     );
@@ -67,10 +67,10 @@ export class Client {
    */
   async getPropertyEmails(
     input: schema.GetPropertyEmailsRequest,
-    options?: PostOptions,
+    options?: RequestOptions,
   ): Promise<schema.GetPropertyEmailsResponse> {
-    const output = await post(
-      this.fromPath("/v1/property/getpropertyemails"),
+    const output = await request(
+      this.toURL("/v1/property/getpropertyemails"),
       schema.getPropertyEmailsRequestSchema.parse(input),
       this.withDefaultRequestOptions(options),
     );
@@ -83,10 +83,10 @@ export class Client {
    */
   async getBranchPerformance(
     input: schema.GetBranchPerformanceRequest,
-    options?: PostOptions,
+    options?: RequestOptions,
   ): Promise<schema.GetBranchPerformanceResponse> {
-    const output = await post(
-      this.fromPath("/v1/property/getbranchperformance"),
+    const output = await request(
+      this.toURL("/v1/property/getbranchperformance"),
       schema.getBranchPerformanceRequestSchema.parse(input),
       this.withDefaultRequestOptions(options),
     );
@@ -99,10 +99,10 @@ export class Client {
    */
   async getPropertyPerformance(
     input: schema.GetPropertyPerformanceRequest,
-    options?: PostOptions,
+    options?: RequestOptions,
   ): Promise<schema.GetPropertyPerformanceResponse> {
-    const output = await post(
-      this.fromPath("/v1/property/getpropertyperformance"),
+    const output = await request(
+      this.toURL("/v1/property/getpropertyperformance"),
       schema.getPropertyPerformanceRequestSchema.parse(input),
       this.withDefaultRequestOptions(options),
     );
@@ -115,10 +115,10 @@ export class Client {
    */
   async addFeaturedProperty(
     input: schema.AddFeaturedPropertyRequest,
-    options?: PostOptions,
+    options?: RequestOptions,
   ): Promise<schema.AddFeaturedPropertyResponse> {
-    const output = await post(
-      this.fromPath("/v1/property/addfeaturedproperty"),
+    const output = await request(
+      this.toURL("/v1/property/addfeaturedproperty"),
       schema.addFeaturedPropertyRequestSchema.parse(input),
       this.withDefaultRequestOptions(options),
     );
@@ -132,10 +132,10 @@ export class Client {
    */
   async removeFeaturedProperty(
     input: schema.RemoveFeaturedPropertyRequest,
-    options?: PostOptions,
+    options?: RequestOptions,
   ): Promise<schema.RemoveFeaturedPropertyResponse> {
-    const output = await post(
-      this.fromPath("/v1/property/removefeaturedproperty"),
+    const output = await request(
+      this.toURL("/v1/property/removefeaturedproperty"),
       schema.removeFeaturedPropertyRequestSchema.parse(input),
       this.withDefaultRequestOptions(options),
     );
@@ -155,10 +155,10 @@ export class Client {
    */
   async addPremiumListing(
     input: schema.AddPremiumListingRequest,
-    options?: PostOptions,
+    options?: RequestOptions,
   ): Promise<schema.AddPremiumListingResponse> {
-    const output = await post(
-      this.fromPath("/v1/property/addpremiumlisting"),
+    const output = await request(
+      this.toURL("/v1/property/addpremiumlisting"),
       schema.addPremiumListingRequestSchema.parse(input),
       this.withDefaultRequestOptions(options),
     );
@@ -172,10 +172,10 @@ export class Client {
    */
   async getBranchPropertyList(
     input: schema.GetBranchPropertyListRequest,
-    options?: PostOptions,
+    options?: RequestOptions,
   ): Promise<schema.GetBranchPropertyListResponse> {
-    const output = await post(
-      this.fromPath("/v1/property/getbranchpropertylist"),
+    const output = await request(
+      this.toURL("/v1/property/getbranchpropertylist"),
       schema.getBranchPropertyListRequestSchema.parse(input),
       this.withDefaultRequestOptions(options),
     );
@@ -190,10 +190,10 @@ export class Client {
    */
   async sendPropertyDetails(
     input: schema.SendPropertyDetailsRequest,
-    options?: PostOptions,
+    options?: RequestOptions,
   ): Promise<schema.SendPropertyDetailsResponse> {
-    const output = await post(
-      this.fromPath("/v1/property/sendpropertydetails"),
+    const output = await request(
+      this.toURL("/v1/property/sendpropertydetails"),
       schema.sendPropertyDetailsRequestSchema.parse(input),
       this.withDefaultRequestOptions(options),
     );
@@ -209,10 +209,10 @@ export class Client {
    */
   async removeProperty(
     input: schema.RemovePropertyRequest,
-    options?: PostOptions,
+    options?: RequestOptions,
   ): Promise<schema.RemovePropertyResponse> {
-    const output = await post(
-      this.fromPath("/v1/property/removeproperty"),
+    const output = await request(
+      this.toURL("/v1/property/removeproperty"),
       schema.removePropertyRequestSchema.parse(input),
       this.withDefaultRequestOptions(options),
     );
