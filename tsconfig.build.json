@@ -1,5 +1,5 @@
 {
-  "extends": ["./tsconfig.base.json"],
+  "extends": "@tsconfig/recommended/tsconfig.json",
   "include": ["src"],
   "exclude": ["**/*.test.ts"],
   "compilerOptions": {
@@ -7,7 +7,6 @@
     "declarationMap": true,
     "sourceMap": true,
     "inlineSources": true,
-    "noEmit": false,
-    "outDir": "./dist"
+    "outDir": "./dist",
   }
 }
