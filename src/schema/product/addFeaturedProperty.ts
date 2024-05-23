@@ -7,9 +7,7 @@ import { responseSchema } from "../response";
 import { FeaturedPropertyType } from "./enums";
 import { property } from "./property";
 
-export type AddFeaturedPropertyRequest = z.input<
-  typeof addFeaturedPropertyRequestSchema
->;
+export type AddFeaturedPropertyRequest = z.input<typeof addFeaturedPropertyRequestSchema>;
 export const addFeaturedPropertyRequestSchema = requestSchema.extend({
   /**
    * Information about the branch loading this property
@@ -42,9 +40,7 @@ export const addFeaturedPropertyRequestSchema = requestSchema.extend({
   }),
 });
 
-export type AddFeaturedPropertyResponse = z.output<
-  typeof addFeaturedPropertyResponseSchema
->;
+export type AddFeaturedPropertyResponse = z.output<typeof addFeaturedPropertyResponseSchema>;
 export const addFeaturedPropertyResponseSchema = responseSchema.extend({
   /**
    * Information about the property sent in the request

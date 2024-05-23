@@ -105,11 +105,5 @@
     }
   },
   "additionalProperties": false,
-  "required": [
-    "request_id",
-    "message",
-    "success",
-    "request_timestamp",
-    "response_timestamp"
-  ]
+  "required": ["request_id", "message", "success", "request_timestamp", "response_timestamp"]
 }

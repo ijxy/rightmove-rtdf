@@ -7,9 +7,7 @@ import { responseSchema } from "../response";
 
 import { propertyDailyPerformanceData } from "./propertyDailyPerformanceData";
 
-export type GetBranchPerformanceRequest = z.input<
-  typeof getBranchPerformanceRequestSchema
->;
+export type GetBranchPerformanceRequest = z.input<typeof getBranchPerformanceRequestSchema>;
 export const getBranchPerformanceRequestSchema = requestSchema.extend({
   /**
    * Details about which branch's performance metrics are being retrieved
@@ -27,9 +25,7 @@ export const getBranchPerformanceRequestSchema = requestSchema.extend({
   export_date: date.requestSchema,
 });
 
-export type GetBranchPerformanceResponse = z.output<
-  typeof getBranchPerformanceResponseSchema
->;
+export type GetBranchPerformanceResponse = z.output<typeof getBranchPerformanceResponseSchema>;
 export const getBranchPerformanceResponseSchema = responseSchema.extend({
   /**
    * The current lag time for replicating between the three Rightmove data centres in minutes

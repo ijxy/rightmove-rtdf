@@ -6,9 +6,7 @@ import { responseSchema } from "../response";
 
 import { email } from "./email";
 
-export type GetBranchEmailsRequest = z.input<
-  typeof getBranchEmailsRequestSchema
->;
+export type GetBranchEmailsRequest = z.input<typeof getBranchEmailsRequestSchema>;
 export const getBranchEmailsRequestSchema = requestSchema.extend({
   /**
    * Details about which branch's emails are being retrieved
@@ -26,9 +24,7 @@ export const getBranchEmailsRequestSchema = requestSchema.extend({
   export_period: exportPeriod.datetime.requestSchema,
 });
 
-export type GetBranchEmailsResponse = z.output<
-  typeof getBranchEmailsResponseSchema
->;
+export type GetBranchEmailsResponse = z.output<typeof getBranchEmailsResponseSchema>;
 export const getBranchEmailsResponseSchema = responseSchema.extend({
   /**
    * The current lag time for replicating between the three Rightmove data centres in minutes

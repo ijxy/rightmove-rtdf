@@ -6,9 +6,7 @@ import { responseSchema } from "../response";
 
 import { Channel } from "./enums";
 
-export type GetBranchPropertyListRequest = z.input<
-  typeof getBranchPropertyListRequestSchema
->;
+export type GetBranchPropertyListRequest = z.input<typeof getBranchPropertyListRequestSchema>;
 export const getBranchPropertyListRequestSchema = requestSchema.extend({
   /**
    * Information about the branch loading this property list
@@ -26,9 +24,7 @@ export const getBranchPropertyListRequestSchema = requestSchema.extend({
   }),
 });
 
-export type GetBranchPropertyListResponse = z.output<
-  typeof getBranchPropertyListResponseSchema
->;
+export type GetBranchPropertyListResponse = z.output<typeof getBranchPropertyListResponseSchema>;
 export const getBranchPropertyListResponseSchema = responseSchema.extend({
   /**
    * Information about the branch sent in the request

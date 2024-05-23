@@ -20,49 +20,31 @@ import { validateZodSchema } from "./validate";
 test("Product Calls", async (t) => {
   await t.test("AddFeaturedProperty", async (tt) => {
     await tt.test("Request", () => {
-      validateZodSchema(
-        addFeaturedPropertyRequestSchema,
-        AddFeaturedPropertyRequestSchema,
-      );
+      validateZodSchema(addFeaturedPropertyRequestSchema, AddFeaturedPropertyRequestSchema);
     });
 
     await tt.test("Response", () => {
-      validateZodSchema(
-        addFeaturedPropertyResponseSchema,
-        AddFeaturedPropertyResponseSchema,
-      );
+      validateZodSchema(addFeaturedPropertyResponseSchema, AddFeaturedPropertyResponseSchema);
     });
   });
 
   await t.test("AddPremiumListing", async (tt) => {
     await tt.test("Request", () => {
-      validateZodSchema(
-        addPremiumListingRequestSchema,
-        AddPremiumListingRequestSchema,
-      );
+      validateZodSchema(addPremiumListingRequestSchema, AddPremiumListingRequestSchema);
     });
 
     await tt.test("Response", () => {
-      validateZodSchema(
-        addPremiumListingResponseSchema,
-        AddPremiumListingResponseSchema,
-      );
+      validateZodSchema(addPremiumListingResponseSchema, AddPremiumListingResponseSchema);
     });
   });
 
   await t.test("RemoveFeaturedProperty", async (tt) => {
     await tt.test("Request", () => {
-      validateZodSchema(
-        removeFeaturedPropertyRequestSchema,
-        RemoveFeaturedPropertyRequestSchema,
-      );
+      validateZodSchema(removeFeaturedPropertyRequestSchema, RemoveFeaturedPropertyRequestSchema);
     });
 
     await tt.test("Response", () => {
-      validateZodSchema(
-        removeFeaturedPropertyResponseSchema,
-        RemoveFeaturedPropertyResponseSchema,
-      );
+      validateZodSchema(removeFeaturedPropertyResponseSchema, RemoveFeaturedPropertyResponseSchema);
     });
   });
 });

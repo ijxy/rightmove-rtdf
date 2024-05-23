@@ -74,13 +74,7 @@
             "description": "Details of all the emails sent for the branch during the export period",
             "items": {
               "type": "object",
-              "required": [
-                "email_id",
-                "from_address",
-                "to_address",
-                "email_date",
-                "user"
-              ],
+              "required": ["email_id", "from_address", "to_address", "email_date", "user"],
               "properties": {
                 "email_id": {
                   "type": "integer",
@@ -333,11 +327,5 @@
     }
   },
   "additionalProperties": false,
-  "required": [
-    "request_id",
-    "message",
-    "success",
-    "request_timestamp",
-    "response_timestamp"
-  ]
+  "required": ["request_id", "message", "success", "request_timestamp", "response_timestamp"]
 }

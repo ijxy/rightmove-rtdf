@@ -146,11 +146,7 @@
                     "description": "The total number of detail views of the property on the requested date, when viewed from a mobile device"
                   }
                 },
-                "required": [
-                  "total_detail_views",
-                  "desktop_detail_views",
-                  "mobile_detail_views"
-                ],
+                "required": ["total_detail_views", "desktop_detail_views", "mobile_detail_views"],
                 "$id": "detail_views"
               }
             },
@@ -219,11 +215,5 @@
     }
   },
   "additionalProperties": false,
-  "required": [
-    "request_id",
-    "message",
-    "success",
-    "request_timestamp",
-    "response_timestamp"
-  ]
+  "required": ["request_id", "message", "success", "request_timestamp", "response_timestamp"]
 }

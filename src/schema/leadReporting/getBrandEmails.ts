@@ -24,9 +24,7 @@ export const getBrandEmailsRequestSchema = requestSchema.extend({
   export_period: exportPeriod.datetime.requestSchema,
 });
 
-export type GetBrandEmailsResponse = z.output<
-  typeof getBrandEmailsResponseSchema
->;
+export type GetBrandEmailsResponse = z.output<typeof getBrandEmailsResponseSchema>;
 export const getBrandEmailsResponseSchema = responseSchema.extend({
   /**
    * The current lag time for replicating between the three Rightmove data centres in minutes

@@ -16,33 +16,21 @@ import { validateZodSchema } from "./validate";
 test("Performance Reporting Calls", async (t) => {
   await t.test("GetBranchPerformance", async (tt) => {
     await tt.test("Request", () => {
-      validateZodSchema(
-        getBranchPerformanceRequestSchema,
-        GetBranchPerformanceRequestSchema,
-      );
+      validateZodSchema(getBranchPerformanceRequestSchema, GetBranchPerformanceRequestSchema);
     });
 
     await tt.test("Response", () => {
-      validateZodSchema(
-        getBranchPerformanceResponseSchema,
-        GetBranchPerformanceResponseSchema,
-      );
+      validateZodSchema(getBranchPerformanceResponseSchema, GetBranchPerformanceResponseSchema);
     });
   });
 
   await t.test("GetPropertyPerformance", async (tt) => {
     await tt.test("Request", () => {
-      validateZodSchema(
-        getPropertyPerformanceRequestSchema,
-        GetPropertyPerformanceRequestSchema,
-      );
+      validateZodSchema(getPropertyPerformanceRequestSchema, GetPropertyPerformanceRequestSchema);
     });
 
     await tt.test("Response", () => {
-      validateZodSchema(
-        getPropertyPerformanceResponseSchema,
-        GetPropertyPerformanceResponseSchema,
-      );
+      validateZodSchema(getPropertyPerformanceResponseSchema, GetPropertyPerformanceResponseSchema);
     });
   });
 });

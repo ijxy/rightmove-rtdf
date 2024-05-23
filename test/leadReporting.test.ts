@@ -20,49 +20,31 @@ import { validateZodSchema } from "./validate";
 test("Lead Reporting Calls", async (t) => {
   await t.test("GetBranchEmails", async (tt) => {
     await tt.test("Request", () => {
-      validateZodSchema(
-        getBranchEmailsRequestSchema,
-        GetBranchEmailsRequestSchema,
-      );
+      validateZodSchema(getBranchEmailsRequestSchema, GetBranchEmailsRequestSchema);
     });
 
     await tt.test("Response", () => {
-      validateZodSchema(
-        getBranchEmailsResponseSchema,
-        GetBranchEmailsResponseSchema,
-      );
+      validateZodSchema(getBranchEmailsResponseSchema, GetBranchEmailsResponseSchema);
     });
   });
 
   await t.test("GetBrandEmails", async (tt) => {
     await tt.test("Request", () => {
-      validateZodSchema(
-        getBrandEmailsRequestSchema,
-        GetBrandEmailsRequestSchema,
-      );
+      validateZodSchema(getBrandEmailsRequestSchema, GetBrandEmailsRequestSchema);
     });
 
     await tt.test("Response", () => {
-      validateZodSchema(
-        getBrandEmailsResponseSchema,
-        GetBrandEmailsResponseSchema,
-      );
+      validateZodSchema(getBrandEmailsResponseSchema, GetBrandEmailsResponseSchema);
     });
   });
 
   await t.test("GetPropertyEmails", async (tt) => {
     await tt.test("Request", () => {
-      validateZodSchema(
-        getPropertyEmailsRequestSchema,
-        GetPropertyEmailsRequestSchema,
-      );
+      validateZodSchema(getPropertyEmailsRequestSchema, GetPropertyEmailsRequestSchema);
     });
 
     await tt.test("Response", () => {
-      validateZodSchema(
-        getPropertyEmailsResponseSchema,
-        GetPropertyEmailsResponseSchema,
-      );
+      validateZodSchema(getPropertyEmailsResponseSchema, GetPropertyEmailsResponseSchema);
     });
   });
 });

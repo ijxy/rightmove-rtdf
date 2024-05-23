@@ -7,9 +7,7 @@ import { responseSchema } from "../response";
 import { Channel, RemovalReason } from "./enums";
 import { property } from "./property";
 
-export type RemovePropertyRequest = z.input<
-  typeof removePropertyRequestSchema
->;
+export type RemovePropertyRequest = z.input<typeof removePropertyRequestSchema>;
 export const removePropertyRequestSchema = requestSchema.extend({
   /**
    * Information about the branch loading this property
@@ -42,9 +40,7 @@ export const removePropertyRequestSchema = requestSchema.extend({
   }),
 });
 
-export type RemovePropertyResponse = z.output<
-  typeof removePropertyResponseSchema
->;
+export type RemovePropertyResponse = z.output<typeof removePropertyResponseSchema>;
 export const removePropertyResponseSchema = responseSchema.extend({
   /**
    * Information about the property sent in the request

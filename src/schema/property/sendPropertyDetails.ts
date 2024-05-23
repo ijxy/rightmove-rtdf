@@ -216,11 +216,7 @@ const detailsRequestSchema = z.object({
   /**
    * Features of the property being sent
    */
-  features: z
-    .array(z.string().min(1).max(200))
-    .max(10)
-    .transform(unique)
-    .nullish(),
+  features: z.array(z.string().min(1).max(200)).max(10).transform(unique).nullish(),
 
   /**
    * The number of bedrooms for the property being sent
@@ -245,10 +241,7 @@ const detailsRequestSchema = z.object({
   /**
    * Outside spaces associated with the property being sent
    */
-  outside_space: z
-    .array(z.nativeEnum(OutsideSpaceType))
-    .transform(unique)
-    .nullish(),
+  outside_space: z.array(z.nativeEnum(OutsideSpaceType)).transform(unique).nullish(),
 
   /**
    * The year in which the property being sent was built
@@ -315,10 +308,7 @@ const detailsRequestSchema = z.object({
   /**
    * Accessibility measures in place in the property being sent
    */
-  accessibility: z
-    .array(z.nativeEnum(AccessibilityMeasure))
-    .transform(unique)
-    .nullish(),
+  accessibility: z.array(z.nativeEnum(AccessibilityMeasure)).transform(unique).nullish(),
 
   /**
    * Heating related features of the property being sent
@@ -338,10 +328,7 @@ const detailsRequestSchema = z.object({
   /**
    * Primary supply of electricity to the property
    */
-  electricity: z
-    .array(z.nativeEnum(ElectricitySupplyType))
-    .transform(unique)
-    .nullish(),
+  electricity: z.array(z.nativeEnum(ElectricitySupplyType)).transform(unique).nullish(),
 
   /**
    * Current supply of broadband to the property
@@ -441,11 +428,7 @@ const detailsRequestSchema = z.object({
   /**
    * The commercial use class(es) of the property being sent
    */
-  comm_use_class: z
-    .array(z.nativeEnum(CommercialUseClass))
-    .max(6)
-    .transform(unique)
-    .nullish(),
+  comm_use_class: z.array(z.nativeEnum(CommercialUseClass)).max(6).transform(unique).nullish(),
 
   /**
    * The council tax band of the property
@@ -491,11 +474,7 @@ const detailsRequestSchema = z.object({
         /**
          * The URLs of images which should be associated with this room
          */
-        room_photo_urls: z
-          .array(z.string().url().max(250))
-          .max(10)
-          .transform(unique)
-          .nullish(),
+        room_photo_urls: z.array(z.string().url().max(250)).max(10).transform(unique).nullish(),
       }),
     )
     .max(99)
@@ -513,10 +492,7 @@ const detailsRequestSchema = z.object({
     /**
      * Types of flooding sources affecting the property
      */
-    sources_of_flooding: z
-      .array(z.nativeEnum(FloodingSource))
-      .transform(unique)
-      .nullish(),
+    sources_of_flooding: z.array(z.nativeEnum(FloodingSource)).transform(unique).nullish(),
 
     /**
      * Any flood defences at the property
@@ -577,9 +553,7 @@ const mediaItemRequestSchema = z.object({
   media_update_date: datetime.requestSchema.nullish(),
 });
 
-export type SendPropertyDetailsRequest = z.input<
-  typeof sendPropertyDetailsRequestSchema
->;
+export type SendPropertyDetailsRequest = z.input<typeof sendPropertyDetailsRequestSchema>;
 export const sendPropertyDetailsRequestSchema = requestSchema.extend({
   /**
    * Information about the branch loading this property
@@ -687,9 +661,7 @@ export const sendPropertyDetailsRequestSchema = requestSchema.extend({
   }),
 });
 
-export type SendPropertyDetailsResponse = z.output<
-  typeof sendPropertyDetailsResponseSchema
->;
+export type SendPropertyDetailsResponse = z.output<typeof sendPropertyDetailsResponseSchema>;
 export const sendPropertyDetailsResponseSchema = responseSchema.extend({
   /**
    * Information about the property sent in the request

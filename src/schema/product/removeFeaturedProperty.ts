@@ -6,9 +6,7 @@ import { responseSchema } from "../response";
 
 import { property } from "./property";
 
-export type RemoveFeaturedPropertyRequest = z.input<
-  typeof removeFeaturedPropertyRequestSchema
->;
+export type RemoveFeaturedPropertyRequest = z.input<typeof removeFeaturedPropertyRequestSchema>;
 export const removeFeaturedPropertyRequestSchema = requestSchema.extend({
   /**
    * Information about the branch loading this property
@@ -31,9 +29,7 @@ export const removeFeaturedPropertyRequestSchema = requestSchema.extend({
   property: property.requestSchema,
 });
 
-export type RemoveFeaturedPropertyResponse = z.output<
-  typeof removeFeaturedPropertyResponseSchema
->;
+export type RemoveFeaturedPropertyResponse = z.output<typeof removeFeaturedPropertyResponseSchema>;
 export const removeFeaturedPropertyResponseSchema = responseSchema.extend({
   /**
    * Information about the property sent in the request

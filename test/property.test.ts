@@ -20,49 +20,31 @@ import { validateZodSchema } from "./validate";
 test("Product Calls", async (t) => {
   await t.test("GetBranchPropertyList", async (tt) => {
     await tt.test("Request", () => {
-      validateZodSchema(
-        getBranchPropertyListRequestSchema,
-        GetBranchPropertyListRequestSchema,
-      );
+      validateZodSchema(getBranchPropertyListRequestSchema, GetBranchPropertyListRequestSchema);
     });
 
     await tt.test("Response", () => {
-      validateZodSchema(
-        getBranchPropertyListResponseSchema,
-        GetBranchPropertyListResponseSchema,
-      );
+      validateZodSchema(getBranchPropertyListResponseSchema, GetBranchPropertyListResponseSchema);
     });
   });
 
   await t.test("SendPropertyDetails", async (tt) => {
     await tt.test("Request", () => {
-      validateZodSchema(
-        sendPropertyDetailsRequestSchema,
-        SendPropertyDetailsRequestSchema,
-      );
+      validateZodSchema(sendPropertyDetailsRequestSchema, SendPropertyDetailsRequestSchema);
     });
 
     await tt.test("Response", () => {
-      validateZodSchema(
-        sendPropertyDetailsResponseSchema,
-        SendPropertyDetailsResponseSchema,
-      );
+      validateZodSchema(sendPropertyDetailsResponseSchema, SendPropertyDetailsResponseSchema);
     });
   });
 
   await t.test("RemoveProperty", async (tt) => {
     await tt.test("Request", () => {
-      validateZodSchema(
-        removePropertyRequestSchema,
-        RemovePropertyRequestSchema,
-      );
+      validateZodSchema(removePropertyRequestSchema, RemovePropertyRequestSchema);
     });
 
     await tt.test("Response", () => {
-      validateZodSchema(
-        removePropertyResponseSchema,
-        RemovePropertyResponseSchema,
-      );
+      validateZodSchema(removePropertyResponseSchema, RemovePropertyResponseSchema);
     });
   });
 });

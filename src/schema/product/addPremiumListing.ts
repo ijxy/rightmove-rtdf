@@ -11,9 +11,7 @@ import {
 } from "./enums";
 import { property } from "./property";
 
-export type AddPremiumListingRequest = z.input<
-  typeof addPremiumListingRequestSchema
->;
+export type AddPremiumListingRequest = z.input<typeof addPremiumListingRequestSchema>;
 export const addPremiumListingRequestSchema = requestSchema.extend({
   /**
    * Information about the branch loading this property
@@ -46,16 +44,12 @@ export const addPremiumListingRequestSchema = requestSchema.extend({
       /**
        * The stamp text which you would like displayed for you premium listed resale property on Rightmove (this field is mandatory if the channel provided is Resale)
        */
-      resale_stamp_text: z
-        .nativeEnum(PremiumListingResaleStampTextType)
-        .nullish(),
+      resale_stamp_text: z.nativeEnum(PremiumListingResaleStampTextType).nullish(),
 
       /**
        * The stamp text which you would like displayed for you premium listed lettings property on Rightmove (this field is mandatory if the channel provided is Lettings)
        */
-      lettings_stamp_text: z
-        .nativeEnum(PremiumListingLettingsStampTextType)
-        .nullish(),
+      lettings_stamp_text: z.nativeEnum(PremiumListingLettingsStampTextType).nullish(),
 
       /**
        * Is this a web premium listing
@@ -70,9 +64,7 @@ export const addPremiumListingRequestSchema = requestSchema.extend({
   }),
 });
 
-export type AddPremiumListingResponse = z.output<
-  typeof addPremiumListingResponseSchema
->;
+export type AddPremiumListingResponse = z.output<typeof addPremiumListingResponseSchema>;
 export const addPremiumListingResponseSchema = responseSchema.extend({
   /**
    * Information about the property sent in the request
