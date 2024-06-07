@@ -3,6 +3,7 @@
   "include": ["src", "test"],
   "compilerOptions": {
     "noEmit": true,
-    "exactOptionalPropertyTypes": false
+    "exactOptionalPropertyTypes": false,
+    "resolveJsonModule": true
   }
 }
