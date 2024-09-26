@@ -2,7 +2,8 @@ import { z } from "zod";
 
 import { datetime } from "./datetime";
 
-const errorSchema = z.object({
+export type ResponseError = z.output<typeof errorSchema>;
+export const errorSchema = z.object({
   /**
    * The unique Rightmove code for the error causing the request to fail
    */
@@ -19,7 +20,8 @@ const errorSchema = z.object({
   error_value: z.string().nullish(),
 });
 
-const warningSchema = z.object({
+export type ResponseWarning = z.output<typeof warningSchema>;
+export const warningSchema = z.object({
   /**
    * The unique Rightmove warning code generated due to failure to pass all of the business rules
    */
@@ -36,6 +38,8 @@ const warningSchema = z.object({
   warning_value: z.string().nullish(),
 });
 
+
+export type Response = z.output<typeof responseSchema>;
 export const responseSchema = z.object({
   /**
    * The message content for the response
